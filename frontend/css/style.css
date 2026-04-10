@@ -1,0 +1,414 @@
+/* ===== PALETA DE MORADOS ===== */
+:root {
+    --morado-oscuro: #2D1B4E;
+    --morado-medio: #4C2A7A;
+    --morado-claro: #7B4FA8;
+    --morado-suave: #A87BC2;
+    --morado-pastel: #D4B8E8;
+    --morado-bg: #F3EDF8;
+    --morado-hover: #8B5CF6;
+    --blanco: #FFFFFF;
+    --texto-claro: #F5F0FF;
+    --texto-oscuro: #1A0B2E;
+}
+
+/* ===== ESTILOS GENERALES ===== */
+body {
+    background: linear-gradient(135deg, var(--morado-bg) 0%, var(--morado-pastel) 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    color: var(--texto-oscuro);
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* ===== HEADER ===== */
+.display-4 {
+    color: var(--morado-oscuro);
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.text-muted {
+    color: var(--morado-medio) !important;
+    font-weight: 500;
+}
+
+/* ===== CONTADOR DE TAREAS ===== */
+.bg-gradient-purple {
+    background: linear-gradient(135deg, var(--morado-oscuro) 0%, var(--morado-medio) 50%, var(--morado-claro) 100%);
+    color: var(--blanco);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(75, 0, 130, 0.2);
+}
+
+.bg-gradient-purple .card-body {
+    padding: 1.5rem;
+}
+
+.bg-gradient-purple h3 {
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Badges del contador */
+.badge.bg-danger {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24) !important;
+    padding: 8px 16px;
+    border-radius: 30px;
+}
+
+.badge.bg-warning {
+    background: linear-gradient(135deg, #ffd32a, #ff9f1a) !important;
+    color: var(--texto-oscuro);
+    padding: 8px 16px;
+    border-radius: 30px;
+}
+
+.badge.bg-success {
+    background: linear-gradient(135deg, #20bf6b, #05c46b) !important;
+    padding: 8px 16px;
+    border-radius: 30px;
+}
+
+/* ===== TARJETAS ===== */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: var(--blanco);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(75, 0, 130, 0.15);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* ===== TARJETAS DE TAREAS ===== */
+.task-card {
+    background: linear-gradient(135deg, var(--blanco) 0%, #FBF8FF 100%);
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(75, 0, 130, 0.1);
+    transition: all 0.3s ease;
+    border-left: 5px solid var(--morado-claro);
+    cursor: grab;
+}
+
+.task-card:active {
+    cursor: grabbing;
+}
+
+.task-card:hover {
+    transform: translateX(8px);
+    box-shadow: 0 6px 16px rgba(75, 0, 130, 0.2);
+    border-left-color: var(--morado-hover);
+}
+
+.task-card.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+}
+
+.task-card.drag-over {
+    border: 2px dashed var(--morado-claro);
+    background: var(--morado-pastel);
+}
+
+.task-card.completed {
+    opacity: 0.75;
+    background: linear-gradient(135deg, #F0EBF5 0%, #E8E0F0 100%);
+    border-left-color: var(--morado-suave);
+}
+
+.task-card.completed .task-name {
+    text-decoration: line-through;
+    color: var(--morado-medio);
+}
+
+/* Nombre de la tarea */
+.task-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--morado-oscuro);
+}
+
+/* Icono de arrastre */
+.fa-grip-vertical {
+    color: var(--morado-claro);
+    cursor: grab;
+}
+
+/* ===== BADGES DE PRIORIDAD ===== */
+.priority-badge {
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.priority-high {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    box-shadow: 0 2px 4px rgba(238, 90, 36, 0.3);
+}
+
+.priority-medium {
+    background: linear-gradient(135deg, #ffd32a, #ff9f1a);
+    color: #2D1B4E;
+    box-shadow: 0 2px 4px rgba(255, 159, 26, 0.3);
+}
+
+.priority-low {
+    background: linear-gradient(135deg, #20bf6b, #05c46b);
+    color: white;
+    box-shadow: 0 2px 4px rgba(5, 196, 107, 0.3);
+}
+
+/* ===== BOTONES ===== */
+.btn-primary {
+    background: linear-gradient(135deg, var(--morado-medio) 0%, var(--morado-claro) 100%);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--morado-oscuro) 0%, var(--morado-medio) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(75, 0, 130, 0.3);
+}
+
+/* Botones de acción de tareas */
+.task-actions button {
+    margin-left: 8px;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.task-actions button:hover {
+    transform: translateY(-2px);
+}
+
+.btn-complete {
+    background: linear-gradient(135deg, #20bf6b, #05c46b);
+    color: white;
+}
+
+.btn-pending {
+    background: linear-gradient(135deg, #ffd32a, #ff9f1a);
+    color: var(--morado-oscuro);
+}
+
+.btn-edit {
+    background: linear-gradient(135deg, var(--morado-claro), var(--morado-hover));
+    color: white;
+}
+
+.btn-delete {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+}
+
+/* Botones de filtro */
+.filter-btn {
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s;
+    border: 1px solid var(--morado-claro);
+    color: var(--morado-oscuro);
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--morado-medio), var(--morado-claro));
+    color: white;
+    border-color: transparent;
+}
+
+/* Botón de ordenar */
+#sortBtn {
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s;
+    border: 1px solid var(--morado-claro);
+    color: var(--morado-oscuro);
+}
+
+#sortBtn:hover {
+    transform: translateY(-2px);
+    background: var(--morado-pastel);
+}
+
+#sortBtn.active {
+    background: linear-gradient(135deg, #ffd32a, #ff9f1a);
+    color: var(--morado-oscuro);
+    border-color: transparent;
+}
+
+/* ===== FORMULARIOS ===== */
+.form-control, .form-select {
+    border-radius: 10px;
+    border: 2px solid var(--morado-pastel);
+    padding: 10px 15px;
+    transition: all 0.3s;
+    background-color: var(--blanco);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--morado-claro);
+    box-shadow: 0 0 0 3px rgba(123, 79, 168, 0.2);
+    outline: none;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--morado-oscuro);
+    margin-bottom: 8px;
+}
+
+/* ===== ALERTAS ===== */
+.alert {
+    border-radius: 12px;
+    border: none;
+    font-weight: 500;
+    animation: slideDown 0.3s ease;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #d4f5e0, #b8e6cc);
+    color: #0a5c2e;
+    border-left: 4px solid #20bf6b;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #ffe0e0, #ffcccc);
+    color: #c0392b;
+    border-left: 4px solid #ff6b6b;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--morado-pastel);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--morado-claro), var(--morado-medio));
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--morado-medio), var(--morado-oscuro));
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.task-card {
+    animation: fadeIn 0.3s ease;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .task-card {
+        padding: 12px;
+    }
+    
+    .task-actions button {
+        margin-left: 4px;
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .btn-group {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .filter-btn {
+        font-size: 0.85rem;
+        padding: 5px 10px;
+    }
+}
+
+/* ===== EFECTOS ESPECIALES ===== */
+/* Sombra al pasar el mouse sobre las tarjetas */
+.task-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    pointer-events: none;
+    transition: box-shadow 0.3s;
+}
+
+/* Mejora del contador */
+#pendingCount {
+    font-size: 2rem;
+    min-width: 60px;
+    display: inline-block;
+}
+
+/* Iconos en botones */
+.btn i, .task-actions button i {
+    margin-right: 5px;
+}
+
+/* Estilo para el botón de ordenar cuando está activo */
+#sortBtn i {
+    margin-right: 8px;
+}

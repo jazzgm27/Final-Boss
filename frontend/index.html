@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Avanzada</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <!-- Header -->
+                <div class="text-center mb-4">
+                    <h1 class="display-4">To-Do List Avanzada</h1>
+                    <p class="text-muted">Gestiona tus tareas con prioridad | Arrastra para reordenar</p>
+                </div>
+
+                <!-- CONTADOR DE TAREAS PENDIENTES -->
+                <div class="card shadow-sm mb-4" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                    <div class="card-body text-center">
+                        <h3 class="mb-0">
+                            <i class="fas fa-hourglass-half"></i>
+                            Tareas Pendientes: 
+                            <span id="pendingCount" class="badge bg-danger fs-4" style="font-size: 1.5rem;">0</span>
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Formulario para agregar tarea -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <input type="text" id="taskName" class="form-control" placeholder="Nombre de la tarea...">
+                            </div>
+                            <div class="col-md-3">
+                                <select id="taskPriority" class="form-select">
+                                    <option value="high">🔴 Alta Prioridad</option>
+                                    <option value="medium">🟡 Media Prioridad</option>
+                                    <option value="low">🟢 Baja Prioridad</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <button id="addTaskBtn" class="btn btn-primary w-100">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filtros y ordenamiento -->
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Filtrar por estado:</label>
+                                <div class="btn-group w-100" role="group">
+                                    <button class="btn btn-outline-secondary filter-btn" data-filter="all" id="filterAll">Todas</button>
+                                    <button class="btn btn-outline-success filter-btn" data-filter="pending" id="filterPending">Pendientes</button>
+                                    <button class="btn btn-outline-info filter-btn" data-filter="completed" id="filterCompleted">Completadas</button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Ordenar:</label>
+                                <button id="sortBtn" class="btn btn-outline-warning w-100">
+                                    <i class="fas fa-sort-amount-down"></i> Ordenar por Prioridad
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lista de tareas -->
+                <div id="tasksList" class="tasks-container">
+                    <div class="text-center text-muted py-5">
+                        <i class="fas fa-tasks fa-3x mb-3"></i>
+                        <p>No hay tareas. ¡Agrega una!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
